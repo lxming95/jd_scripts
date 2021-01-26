@@ -9,17 +9,17 @@
 ============Quantumultx===============
 [task_local]
 #京东炸年兽🧨
-0 9,12,20 * * * https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js, tag=京东炸年兽🧨, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/main/Icon/lxk0301/jd_nian.png, enabled=true
+0 9,12,20,21 * * * https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js, tag=京东炸年兽🧨, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/main/Icon/lxk0301/jd_nian.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 9,12,20 * * *" script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js,tag=京东炸年兽🧨
+cron "0 9,12,20,21 * * *" script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js,tag=京东炸年兽🧨
 
 ===============Surge=================
-京东炸年兽🧨 = type=cron,cronexp="0 9,12,20 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js
+京东炸年兽🧨 = type=cron,cronexp="0 9,12,20,21 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js
 
 ============小火箭=========
-京东炸年兽🧨 = type=cron,script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js, cronexpr="0 9,12,20 * * *", timeout=3600, enable=true
+京东炸年兽🧨 = type=cron,script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_nian.js, cronexpr="0 9,12,20,21 * * *", timeout=3600, enable=true
  */
 const $ = new Env('京东炸年兽🧨');
 
@@ -46,20 +46,10 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = [
-  `cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz@cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo@cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs@cgxZbiTXceSCtUKFa2quuFIvQHXbX7s@cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8@cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS`,
-  `cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz@cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo@cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs@cgxZbiTXceSCtUKFa2quuFIvQHXbX7s@cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8@cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS`,
-  `cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz@cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo@cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs@cgxZbiTXceSCtUKFa2quuFIvQHXbX7s@cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8@cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS`,
-  `cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz@cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo@cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs@cgxZbiTXceSCtUKFa2quuFIvQHXbX7s@cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8@cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS`,
-  `cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz@cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo@cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs@cgxZbiTXceSCtUKFa2quuFIvQHXbX7s@cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8@cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS`,
   `cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz@cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo@cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs@cgxZbiTXceSCtUKFa2quuFIvQHXbX7s@cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8@cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS`
 ];
 const pkInviteCodes = [
-  'IgNWdiLGaPbY6A3JDwKg7NRbo8XV5N4ofSXgSEbNNL72tJdHhTd5WPr0P42AXd7P6auL-g',
-  'IgNWdiLGaPbY6A3JDwKg7NRbo8XV5N4ofSXgSEbNNL72tJdHhTd5WPr0P42AXd7P6auL-g',
-  'IgNWdiLGaPbY6A3JDwKg7NRbo8XV5N4ofSXgSEbNNL72tJdHhTd5WPr0P42AXd7P6auL-g',
-  'IgNWdiLGaPbY6A3JDwKg7NRbo8XV5N4ofSXgSEbNNL72tJdHhTd5WPr0P42AXd7P6auL-g',
-  'IgNWdiLGaPbY6A3JDwKg7NRbo8XV5N4ofSXgSEbNNL72tJdHhTd5WPr0P42AXd7P6auL-g',
-  'IgNWdiLGaPbY6A3JDwKg7NRbo8XV5N4ofSXgSEbNNL72tJdHhTd5WPr0P42AXd7P6auL-g'
+  ''
 ]
 !(async () => {
   await requireConfig();
@@ -115,6 +105,7 @@ async function jdNian() {
       $.hasGroup = false
       await pkTaskStealDetail()
       if ($.hasGroup) await pkInfo()
+      await helpFriendsPK()
     }
     await $.wait(2000)
     await killCouponList()
@@ -1087,7 +1078,7 @@ function readShareCodePk() {
   console.log(`开始`)
   return new Promise(async resolve => {
     $.get({
-      url: `http://jd.turinglabs.net/api/v2/jd/nian_pk/read/${randomCount}/`,
+      url: `http://jd.turinglabs.net/api/v2/jd/nian/read/${randomCount}/`,
       'timeout': 10000
     }, (err, resp, data) => {
       try {
@@ -1143,7 +1134,9 @@ function shareCodesFormatPk() {
       const tempIndex = $.index > pkInviteCodes.length ? (pkInviteCodes.length - 1) : ($.index - 1);
       $.newShareCodesPk = pkInviteCodes[tempIndex].split('@');
     }
-    const readShareCodeRes = null //await readShareCodePk();
+    let readShareCodeRes = null
+    if (new Date().getUTCHours() >= 12)
+      readShareCodeRes = await readShareCodePk();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodesPk = [...new Set([...$.newShareCodesPk, ...(readShareCodeRes.data || [])])];
     }
