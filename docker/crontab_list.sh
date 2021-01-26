@@ -39,7 +39,7 @@
 # 宠汪汪积分兑换奖品
 0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
 # 宠汪汪换500豆
-0 0-16/8 * * * node /scripts/jd_joy_500.js >> /scripts/logs/jd_joy_500.log 2>&1
+0 0,8,16 * * * node /scripts/jd_joy_500.js >> /scripts/logs/jd_joy_500.log 2>&1
 # 宠汪汪偷好友积分与狗粮
 0 0-10/2 * * * node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
 # 摇钱树
