@@ -287,7 +287,7 @@ function newQuestion(params) {
                 if (err) {
                     console.log(err)
                 } else {
-                    data = JSON.parse(data);
+
                     if (data.code === 200) {
                         console.log('题库+1')
                     } 
